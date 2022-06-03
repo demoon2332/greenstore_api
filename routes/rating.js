@@ -13,7 +13,7 @@ router.get('/init',(req, res, next)=>{
     .then((result)=>{
         if(!result || result.length === 0){
             try {
-                Rating.insertMany(rate_data_sample.getSampleData)
+                Rating.insertMany(rate_data_sample.getRatingData)
             }
             catch (err) {
                 console.log(err)

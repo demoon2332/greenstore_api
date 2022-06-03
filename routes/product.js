@@ -55,9 +55,40 @@ router.get('/:id', (req, res, next) => {
         })
 })
 
+const vnMap = [
+    "aáàạãả",
+    "eéèẹẽẻêếềệểễ",
+    "oóòỏõọôốồổỗộơớờởỡợ",
+    "iíìỉĩị",
+    "uúùủũụ"
+]
+
 router.get('/search/:query', (req, res, next) => {
     let query = req.params.query
-    Product.find({title: {$regex: query, $options: 'i'}})
+    let key = []
+    let term = []
+    for(var i=0;i<query.length;i++){
+        for(var j=0;j<vnMap.length;j++){
+            if(vnMap[j].includes(query[i])){
+                console.log(vnMap[j])
+                console.log(query[i])  
+                key.push(query[i])
+                term.push(vnMap[j])
+                break;
+            }
+        }
+    }
+    for(var i=0;i<key.length;i++){
+        query = query.replace(key[i],'['+term[i]+']')
+        console.log(key[i])
+        console.log(term[i])
+    }
+    console.log("query: "+query)
+
+
+    let regexp = new RegExp(term.join(""))
+
+    Product.find({title: {$regex: query, $options: 'i'}}).collation({locale: "vi", strength: 1})
         .then(result => {
             if (!result || result.length<1) {
                 return res.json({ code: 1, message: 'No data.' })
