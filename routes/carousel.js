@@ -13,7 +13,7 @@ router.get('/init', (req, res, next) => {
     .then((result)=>{
         if(!result || result.length === 0){
             try {
-                Category.insertMany(carousel_data_sample.getSampleData)
+                Carousel.insertMany(carousel_data_sample.getSampleData)
             }
             catch (err) {
                 console.log(err)
