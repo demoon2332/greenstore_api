@@ -5,7 +5,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
+    name: String,
     email: String,
+    phone: String,
+    address: String,
+    createdAt: String
 })
 
 module.exports = mongoose.model('User', UserSchema)

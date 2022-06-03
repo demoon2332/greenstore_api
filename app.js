@@ -55,7 +55,7 @@ app.use('/category', categoryRouter);
 app.use('/carousel',carouselRouter)
 app.use('/cart',cartRouter)
 app.use('/order', orderRouter)
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 
 
 
