@@ -32,7 +32,7 @@ module.exports = {
             category_sn: 'snack',
             details: `Bánh snack khoai tây miếng Lay's Stax được sản xuất từ những nguyên liệu tự nhiên như khoai tây, dầu cám gạo, gia vị tự nhiên… theo công thức đặc biệt mang đến hương vị thơm ngon hấp dẫn, kích thích vị giác.
             Không chỉ thơm ngon, đây còn là nguồn cung cấp dưỡng chất dồi dào cho cơ thể, giúp cơ thể luôn sẵn sàng năng lượng cho các hoạt động trong ngày.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '4',
@@ -44,7 +44,7 @@ module.exports = {
             category_sn: 'veg',
             details: `Cà chua đỏ Đông A là nguyên liệu rau quả được sử dụng rất quen thuộc trong bữa ăn hằng ngày của gia đình. Cà chua có nguồn gốc từ Nam Mỹ và được tiến hóa từ loại cây nhỏ có quả màu xanh phổ biến lúc bấy giờ ở vùng cao nguyên Peru.
             Hầu hết các loại cà chua đều có đường kính trung bình từ 5 - 6cm và có thể sinh trưởng trong những điều kiện phát triển khác nhau.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '5',
@@ -70,7 +70,7 @@ module.exports = {
             Xuất xứ: Đà Lạt chuẩn VietGap
             Trọng lượng: 0.5 kg
             Dùng để ăn luộc, nấu canh, xào`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '7',
@@ -122,7 +122,7 @@ module.exports = {
             Xuất xứ: Đà Lạt chuẩn VietGap
             Trọng lượng: 0.5 kg
             Dùng để ăn luộc, nấu canh, xào`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '12',
@@ -144,7 +144,7 @@ module.exports = {
             brand: 'Lays',
             category_sn: 'snack',
             details: `Được sản xuất từ những nguyên liệu tự nhiên như khoai tây, dầu cám gạo, gia vị tự nhiên… theo công thức đặc biệt mang đến hương vị thơm ngon hấp dẫn, kích thích vị giác. Không chỉ thơm ngon, đây còn là nguồn cung cấp dưỡng chất dồi dào cho cơ thể, giúp cơ thể luôn sẵn sàng năng lượng cho các hoạt động trong ngày.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '14',
@@ -234,7 +234,7 @@ module.exports = {
             brand: 'Trung Đông',
             category_sn: 'meat',
             details: `Vai bò Úc tươi hút chân không khay 250g là phần thịt không xương lớn nhất ở ức trước con bò, phần thịt này mềm và đan xen các vân mỡ thơm ngon, mềm mọng. Phần thịt vai bò có thể nói là một nguyên liệu xuất sắc cho món beefsteak, bò nướng,... với phần thịt mọng nước thơm ngon`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '21',
@@ -256,7 +256,7 @@ module.exports = {
             brand: 'C.P',
             category_sn: 'meat',
             details: `Ba rọi heo rút sườn của thương hiệu CP được đóng gói và bảo quản theo những tiêu chuẩn nghiêm ngặt về vệ sinh và an toàn thực phẩm, đảm bảo về chất lượng, độ tươi và ngon của thực phẩm, xuất xứ rõ ràng.  Ba rọi với tỉ lệ nạc mỡ tuyệt vời nên rất thích hợp để nướng BBQ, luộc hoặc kho mặn.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '23',
@@ -278,7 +278,7 @@ module.exports = {
             brand: 'Master Meat',
             category_sn: 'meat',
             details: `Xương đuôi heo là nguyên liệu hầm không thể thiếu của mọi nhà nhờ vào chất ngọt từ xương và cái khớp sụn được tiết ra. Xương đuôi heo Meat Master không chỉ được sản xuất với những quy định nghiêm ngặt, mang đến chất lượng sản phẩm tuyệt vời mà còn có giá thành phải chăng cho mọi nhà.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '25',
@@ -289,7 +289,7 @@ module.exports = {
             brand: 'Maggi',
             category_sn: 'spice-sauce',
             details: `Với hương vị thanh ngon đặc trưng trong từng giọt nước tương sánh đậm, để lại dư vị tinh tế cho từng món ăn. Nước tương Maggi Đậm đặc chai 700ml với tinh chất đậu nành đậm đặc, sử dụng công nghệ lên men tự nhiên 100% giúp giữ lại vị ngon tinh túy đến từ thương hiệu nước tương Maggi.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '26',
@@ -300,7 +300,7 @@ module.exports = {
             brand: 'Tam thái tử',
             category_sn: 'spice-sauce',
             details: `Bia Heineken là loại bia Hà Lan phổ biến nhất thế giới, với hương vị đậm đà, tinh khiết, cân đối hài hoà giữa vị chua, ngọt, đắng của hoa bia và mạch nha lúa mạch, có chất lượng vượt trội so với các loại bia lager khác cùng phân khúc giá.`,
-            discount: 0
+            discount: 0.0
         },
         {
             pid: '27',
