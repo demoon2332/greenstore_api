@@ -61,5 +61,19 @@ router.post('/update',(req,res)=>{
   })
 })
 
+router.get('/:uid',(req,res)=>{
+  let id = req.params.uid
+  User.findOne({ uid: id })
+      .then(result => {
+          if (!result) {
+              return res.json({ code: 1, message: 'No data' })
+          }
+          return res.json({ code: 0, message: 'fetch product successfully', data: result })
+      })
+      .catch(err => {
+          return res.json({ code: 100, message: err })
+      })
+})
+
 
 module.exports = router;

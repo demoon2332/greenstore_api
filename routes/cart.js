@@ -292,4 +292,18 @@ router.get('/demo2/:pid',async (req, res, next)=>{
     return res.json({datas: data})
 })
 
+// router.get('/totalPay/:uid',(req,res)=>{
+//     let id = req.params.id
+//     Product.findOne({ pid: id })
+//         .then(result => {
+//             if (!result) {
+//                 return res.json({ code: 1, message: 'No data' })
+//             }
+//             return res.json({ code: 0, message: 'fetch product successfully', data: result })
+//         })
+//         .catch(err => {
+//             return res.json({ code: 100, message: err })
+//         })
+// })
+
 module.exports = router;
