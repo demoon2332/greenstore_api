@@ -12,7 +12,7 @@ const ProductSchema = new mongoose.Schema({
     brand: String,
     category_sn: String,
     details: String,
-    discount: double    
+    discount: Number    
 })
 
 module.exports = mongoose.model('Product',ProductSchema)
