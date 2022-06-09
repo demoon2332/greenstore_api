@@ -53,6 +53,9 @@ router.post('/update',(req,res)=>{
 
   User.findOneAndUpdate(filter,update)
   .then(result=>{
+    if(!result){
+      return res.json({code: 1,message: "Can't find user."})
+    }
     return res.json({code: 0,message: "Update user successfully."})
   })
   .catch(err=>{
