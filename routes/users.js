@@ -43,7 +43,7 @@ router.post('/update',(req,res)=>{
     return res.json({code: 1,message: 'Please complete all information.'})
   }
   let filter = {uid: uid}
-  let update = {name,address}
+  let update = {name: name,address: address}
   if(!name || name.length < 1 ){
     update = {address: address}
   }

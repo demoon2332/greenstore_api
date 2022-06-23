@@ -16,6 +16,7 @@ var categoryRouter = require('./routes/category')
 var carouselRouter = require('./routes/carousel')
 var cartRouter = require('./routes/cart')
 var orderRouter = require('./routes/order')
+var taskRouter = require('./routes/task');
 
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/carousel',carouselRouter)
 app.use('/cart',cartRouter)
 app.use('/order', orderRouter)
 app.use('/user', usersRouter);
+app.use('/task',taskRouter)
 
 
 
