@@ -89,7 +89,8 @@ app.use('/bingoGame',bingoGameRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+  res.render('error')
 });
 
 // error handler
@@ -107,7 +108,8 @@ app.use(function(err, req, res, next) {
 });
 
 // these cover below code can be remove after run production (because port have been used in ./bin/www)
-const port = 8086;
+
+const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
