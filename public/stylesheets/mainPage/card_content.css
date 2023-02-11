@@ -1,0 +1,120 @@
+:root {
+    --primary-color: #fff;
+    --curve: 40;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #fef8f8;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 2rem;
+    margin: 2.2rem 4vw;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .card {
+    position: relative;
+    display: block;
+    height: 100%;  
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .card_image {      
+    width: 100%;
+    height: auto;
+  }
+  
+  .card_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;     
+    /* border-radius: calc(var(--curve) * 1px);     */
+    background-color: var(--primary-color);      
+    transform: translateY(100%);
+    transition: .3s ease-in-out;
+  }
+  
+  .card:hover .card_overlay {
+    transform: translateY(0);
+  }
+  
+  .card_header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    border-top-left-radius: calc(var(--curve) * 1px) 0 0 0;    
+    background-color: var(--primary-color);
+    transform: translateY(-100%);
+    transition: .3s ease-in-out;
+  }
+  
+  .card_arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;      
+    z-index: 1;
+  }
+  
+  .card_arc path {
+    fill: var(--primary-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  }       
+  
+  .card:hover .card_header {
+    transform: translateY(0);
+  }
+  
+  .card_thumb {
+    flex-shrink: 0;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;      
+    border-radius: 50%;      
+  }
+  
+  .card_title {
+    font-size: 1em;
+    margin: 0 0 .3em;
+    color: #6A515E;
+  }
+  
+  .card_short_desc {
+    font-size: 1rem; 
+    color: #cd63c4;  
+    display: inline-block;
+  }
+  
+  .card_status{
+    font-size: 1rem;
+    font-family: 'Tahoma';
+    color: #28a745;
+  }
+
+  
+  .card_description {
+    padding: 0 0 1.2rem 1.2rem;
+    color: #282828;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }    

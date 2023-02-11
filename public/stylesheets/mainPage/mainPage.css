@@ -1,0 +1,8 @@
+
+body{
+    width: 100vw;
+    background-image: url('../../images/index/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}

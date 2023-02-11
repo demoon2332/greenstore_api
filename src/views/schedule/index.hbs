@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="./stylesheets/schedule/index.css">
+    <link rel="stylesheet" type="text/css" href=" https://fonts.googleapis.com/css?family=Pacifico" />
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="header">
+            <button id="backButton" class="btn btn-primary">Back</button>
+            <div id="monthDisplay"></div>
+            <button id="nextButton" class="btn btn-primary">Next</button>
+        </div>
+
+        <div id="weekdays">
+            <div>Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+        </div>
+
+        <div>
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <div id="newEventModal">
+        <h2>New Event</h2>
+
+        <input id="eventTitleInput" placeholder="Event Title" />
+        <textarea id="eventDescription" placeholder="Something...."></textarea>
+        <div>
+
+            <button id="saveButton" class="btn btn-success">Save</button>
+            <button id="cancelButton" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <div id="deleteEventModal">
+        <h2>Event</h2>
+
+        <p id="eventText"></p>
+
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+    </div>
+
+    <div id="modalBackDrop"></div>
+
+    <script src="./javascripts/schedule/schedule.js"></script>
+
+</body>

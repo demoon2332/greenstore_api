@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Lunar Bingo Game</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./stylesheets/bingoGame/main.css">
+  <link rel="stylesheet" type="text/css" href=" https://fonts.googleapis.com/css?family=Pacifico" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<div id="container" style="display: flex;flex-direction: column;gap: 20px">
+  <div>
+    <div class="control-area">
+      <div class="numberKeyboard">
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>0</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>1</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>2</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>3</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>4</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>5</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>6</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>7</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>8</span></div>
+        </label>
+        <label>
+          <input type="checkbox">
+          <div class="mark"><span>9</span></div>
+        </label>
+
+      </div>
+      <button class="addTicketBtn" onclick="addTicket()">Add ticket</button>
+    </div>
+  </div>
+  <main id="ticket1">
+    <h1>
+      Lunar<br>
+      <span>
+        Moon shines in the darkness
+      </span>
+    </h1>
+    <!-- Warning: the following code sucks, but it works, damn it! -->
+
+    <div class="info-header">
+      <select class="selectChess">
+        <option value="0" selected>Please choose ticket</option>
+        <option value="1">Chess 1</option>
+        <option value="2">Chess 2</option>
+        <option value="3">Chess 3</option>
+        <option value="4">Chess 4</option>
+        <option value="5">Chess 5</option>
+        <option value="6">Chess 6</option>
+      </select>
+
+      <div>Card a<span id="seed">01</span> - Pink</div>
+    </div>
+
+
+    <div>
+      <div class="grid">
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>1</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>2</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>3</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>4</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>5</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>6</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>7</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>8</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>9</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>10</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>11</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>12</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>13</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>14</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>15</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>16</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>17</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>18</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>19</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>20</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>21</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>22</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>23</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>24</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>25</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>26</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>27</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>28</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>29</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>30</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>31</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>32</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>33</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>34</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>35</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>36</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>37</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>38</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>39</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>40</span></div>
+          </label>
+        </div>
+
+        <div class="line" tag="0">
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>41</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>42</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>43</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>44</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark"><span>45</span></div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <small>A man with 2 dogs</small>
+
+  </main>
+
+</div>
+<script src="./javascripts/bingoGame/main.js"></script>
