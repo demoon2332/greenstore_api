@@ -22,6 +22,15 @@
 
     console.log("after fetching")
     console.log(chesses)
+
+    // set event to listener 
+    let newSelect = document.getElementById('ticket1').querySelector('select')
+    newSelect.addEventListener('change',function(event){
+      changeChess('ticket1',event.target.value)
+    },true)
+
+    // add event to each number
+    addEventToNumber('ticket1')
     
     // start music
     // let backgroundAudio = new Audio('sound/sound.mp3');
@@ -62,9 +71,20 @@
 
   function changeChess(ticket_id,chess_id) {
     let lines = document.getElementById(ticket_id).querySelectorAll('.line span')
-    let numbers = chesses.filter((e) => e.id == chess_id)[0].numbers.split(' ');
-    console.log('here is all numbers')
-    console.log(numbers)
+    let chess = chesses.filter((e) => e.id == chess_id)[0];
+    let numbers = chess.numbers.split(' ');
+    
+    // set color of ticket
+    let ticket = document.getElementById(ticket_id)
+    ticket.style.background = chess.colorCode
+    console.log(ticket)
+    console.log("plesae above")
+
+    // set information of ticket
+    let seed = ticket.querySelector('.ticket_seed')
+    let color = ticket.querySelector('.ticket_color')
+    seed.innerHTML = chess.id
+    color.innerHTML = chess.color
 
     for (let i = 0; i < numbers.length; i++) {
       //let currentLine = Math.floor(i/5)
@@ -78,6 +98,29 @@
   function announce(){
     let audio = new Audio('sound/tick.mp3');
     audio.play()
+  }
+
+  function addEventToNumber(ticket_id){
+    let boxes = document.getElementById(ticket_id).querySelectorAll('.grid input')
+    boxes.forEach((box)=>{box.addEventListener("change",function(e){
+      let parentLine = box.parentNode.parentNode
+      let parentCount = parentLine.getAttribute('tag') //max = 5 and min = 0
+      if(e.target.checked){    
+        parentLine.setAttribute('tag',parseInt(parentCount) + 1)
+      }
+      else{
+        parentLine.classList.remove('line-bingo')
+        parentLine.setAttribute('tag',parseInt(parentCount) - 1 )
+      }
+
+      //if reach count = 5 then announce
+      if(parentLine.getAttribute('tag') == "5")
+        {
+          parentLine.classList.add('line-bingo')
+          announce()
+        }
+    })
+    });
   }
 
   function addTicket() {
@@ -95,20 +138,27 @@
     },true)
 
     // add event listener to each number in chess (position in grid)
-    let boxes = newTicket.querySelectorAll('.grid input')
-    boxes.forEach((box)=>{box.addEventListener("change",function(e){
-      let parentLine = box.parentNode.parentNode
-      let parentCount = parentLine.getAttribute('tag') //max = 5 and min = 0
-      if(e.target.checked){    
-        parentLine.setAttribute('tag',parseInt(parentCount) + 1)
-      }
-      else{
-        parentLine.setAttribute('tag',parseInt(parentCount) - 1 )
-      }
 
-      //if reach count = 5 then announce
-      if(parentLine.getAttribute('tag') == "5")
-        announce()
-    })
-    });
+    addEventToNumber(newTicket.id)
+
+    // let boxes = newTicket.querySelectorAll('.grid input')
+    // boxes.forEach((box)=>{box.addEventListener("change",function(e){
+    //   let parentLine = box.parentNode.parentNode
+    //   let parentCount = parentLine.getAttribute('tag') //max = 5 and min = 0
+    //   if(e.target.checked){    
+    //     parentLine.setAttribute('tag',parseInt(parentCount) + 1)
+    //   }
+    //   else{
+    //     parentLine.classList.remove('line-bingo')
+    //     parentLine.setAttribute('tag',parseInt(parentCount) - 1 )
+    //   }
+
+    //   //if reach count = 5 then announce
+    //   if(parentLine.getAttribute('tag') == "5")
+    //     {
+    //       parentLine.classList.add('line-bingo')
+    //       announce()
+    //     }
+    // })
+    // });
   }
