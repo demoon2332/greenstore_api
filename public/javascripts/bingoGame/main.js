@@ -6,6 +6,13 @@
 
   //elements
   let grid = document.getElementsByClassName('grid')[0];
+  const clone = document.getElementById('ticket1').cloneNode(true)
+  let numbersManagementHTML = document.querySelector('#numbersManagement')
+  
+
+  // use for auto finding number to mark it
+  let chosenDigits = '' //max amount should be 2 digits (because in this game we only use 01 --> 90 )
+
 
 
 
@@ -31,6 +38,7 @@
 
     // add event to each number
     addEventToNumber('ticket1')
+    addEventToDigits()
     
     // start music
     // let backgroundAudio = new Audio('sound/sound.mp3');
@@ -77,8 +85,6 @@
     // set color of ticket
     let ticket = document.getElementById(ticket_id)
     ticket.style.background = chess.colorCode
-    console.log(ticket)
-    console.log("plesae above")
 
     // set information of ticket
     let seed = ticket.querySelector('.ticket_seed')
@@ -126,7 +132,7 @@
   function addTicket() {
     //copy empty ticket --> totalTicket + 1 --> update id of main tag element = 'ticket*' with * is totalTicket
     let container = document.getElementById('container')
-    let newTicket = document.getElementById('ticket1').cloneNode(true)
+    let newTicket = clone.cloneNode(true)
     totalTickets += 1
     newTicket.id = 'ticket'+totalTickets
     container.appendChild(newTicket)
@@ -162,3 +168,134 @@
     // })
     // });
   }
+
+  // these functions below used for automatically finding and marking number for many tickets 
+
+  function openNumbersTable(){
+    Swal.fire({
+      title: 'Picked numbers',
+      text: 'These are numbers has been rolled out.',
+      imageUrl: 'images/game/cuteCat.jpg',
+      imageWidth: 300,
+      imageHeight: 300,
+      background: '#fff url("images/iput-bg.jpg")',
+      imageAlt: 'Custom image',
+      html: numbersManagementHTML
+    })
+  }
+
+  function pickBtn(){
+
+  }
+
+  function addEventToDigits(){
+    let boxes = document.querySelector('.numberKeyboard').querySelectorAll('input')
+
+
+
+    boxes.forEach((box)=>{box.addEventListener("change",function(e){
+      let number = box.parentNode.querySelector('span').innerHTML
+
+      // assign random digits to this number 
+      let ran_digit = document.querySelector('#digit-random')
+      ran_digit.querySelector('span').innerHTML = number
+
+      // assign to chosenDigit
+      if(e.target.checked){    
+        chosenDigits = chosenDigits + number
+      }
+      else{
+        chosenDigits = chosenDigits.replace(number,'')
+      }
+      console.log(chosenDigits)
+    })
+    });
+  }
+
+  function findAndMark(){
+    let number = parseInt(chosenDigits)
+    // // get all current tickets
+    // let tickets = document.getElementsByTagName('main')
+
+    // // find ticket contain this number
+    // let ticketsContains
+    // tickets.forEach((ticket)=>{
+    //   let number = ticket.querySelector('select').value
+    //   chesses.find(e => e.id == number)
+    // });
+
+    // // find line contain this number (line inside the ticket)
+
+
+
+    // find all boxes 
+    let boxes = document.querySelectorAll('.mark')
+    boxes.forEach((box)=>{
+      let value = box.querySelector('span').innerHTML
+      if(value == number){
+        console.log("CLICK")
+        box.parentNode.querySelector('input').click()
+      }
+    });
+
+    // clear all digits after marked
+    chosenDigits = ''
+    let digits = document.querySelector('.numberKeyboard').querySelectorAll('input')
+    digits.forEach((e)=>{
+      if(e.checked)
+        e.click()
+    })
+  }
+
+  function addNumber(e){
+    console.log("work")
+    
+    // add numbers to number management table
+    // let numberClone = document.getElementsByClassName('numberPicked')[0]
+    // numberClone.innerHTML = parseInt(chosenDigits)
+    // numbersManagementHTML.appendChild(numberClone)
+
+
+
+    // add to numbers management table
+    let a = parseInt(chosenDigits)
+    console.log("before function",a)
+    addNumberToTable(parseInt(chosenDigits))
+
+    findAndMark()
+
+  }
+
+  function addNumberToTable(number){
+    console.log("In function: ",number)
+    let clone = document.querySelector('.numberPicked').cloneNode(true)
+    clone.innerHTML = number
+    let table = document.querySelector('#numbersManagement')
+    table.appendChild(clone)
+   
+  }
+
+  function findAndUnmarked(number){
+    // find all boxes 
+    let boxes = document.querySelectorAll('.mark')
+    boxes.forEach((box)=>{
+      let value = box.querySelector('span').innerHTML
+      if(value == number){
+        console.log("CLICK")
+        box.parentNode.querySelector('input').click()
+      }
+    });
+
+  }
+
+  function removeNumber(e){
+    // delete this number block
+    e.remove()
+    findAndUnmarked(e.innerHTML)
+  }
+
+  function confirmAnnounce(element){
+
+  }
+
+  

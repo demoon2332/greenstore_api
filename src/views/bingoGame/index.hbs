@@ -15,57 +15,74 @@
 
 </head>
 
+<div id="numbersManagement">
+  <button class="numberPicked " onclick="removeNumber(this)">56</button>
+</div>
+
 <div id="container" style="display: flex;flex-direction: column;gap: 20px">
   <div>
     <div class="control-area">
-      <div class="numberKeyboard">
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>0</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>1</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>2</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>3</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>4</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>5</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>6</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>7</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>8</span></div>
-        </label>
-        <label>
-          <input type="checkbox">
-          <div class="mark"><span>9</span></div>
-        </label>
-
+      <div class="control-area-l1">
+        <div class="numberKeyboard">
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>0</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>1</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>2</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>3</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>4</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>5</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>6</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>7</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>8</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div class="mark-2"><span>9</span></div>
+          </label>
+          <label>
+            <input type="checkbox">
+            <div id="digit-random" class="mark-2"><span>?</span></div>
+          </label>
+        </div>
+        <button class="addNumberBtn-pushable" onclick="addNumber(this)" role="button">
+          <span class="addNumberBtn-shadow"></span>
+          <span class="addNumberBtn-edge"></span>
+          <span class="addNumberBtn-front text">Pick</span>
+        </button>
       </div>
-      <button class="addTicketBtn" onclick="addTicket()">Add ticket</button>
+      <div class="control-area-l2">
+        <button class="addTicketBtn" onclick="addTicket()">Add ticket</button>
+        <button class="openNumbersTableBtn" onclick="openNumbersTable()">Numbers</button>
+      </div>
     </div>
   </div>
   <div>
-    
+
   </div>
   <main id="ticket1">
     <h1>
@@ -316,4 +333,6 @@
   </main>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="./javascripts/bingoGame/main.js"></script>

@@ -44,22 +44,35 @@ body {
   .control-area{
     justify-self: center;
     align-self: center;
-    width: 90%;
+    padding: 10px 0px 0px 10px;
+    /* width: 90%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
+  }
 
+  .control-area-l1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .control-area-l2 {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding-right: 10px;
   }
 
 
-/* CSS */
+/* CSS for adding new ticket button*/
   .addTicketBtn {
     align-items: center;
     appearance: none;
-    background-color: #FCFCFD;
+    background-color: #f4b35f;
     border-radius: 4px;
     border-width: 0;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#c17d3d 0 -3px 0 inset;
     box-sizing: border-box;
     color: #36395A;
     cursor: pointer;
@@ -85,7 +98,7 @@ body {
   }
 
   .addTicketBtn:focus {
-    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-shadow: #e7dfd6 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   }
 
   .addTicketBtn:hover {
@@ -94,9 +107,150 @@ body {
   }
 
   .addTicketBtn:active {
-    box-shadow: #D6D6E7 0 3px 7px inset;
+    box-shadow: #65431b 0 3px 7px inset;
     transform: translateY(2px);
   }
+
+/* CSS for open table button */
+  .openNumbersTableBtn {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 12px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .openNumbersTableBtn:hover {
+    background-color: #fff;
+  }
+
+  .openNumbersTableBtn:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+  @media (min-width: 768px) {
+    .openNumbersTableBtn {
+      min-width: 120px;
+      padding: 0 25px;
+    }
+  }
+
+
+/* CSS for adding number button */
+.addNumberBtn-pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.addNumberBtn-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.addNumberBtn-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+
+.addNumberBtn-front {
+  display: block;
+  position: relative;
+  padding: 8px 22px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+@media (min-width: 768px) {
+  .addNumberBtn-front {
+    font-size: 1.25rem;
+    padding: 12px 42px;
+  }
+}
+
+.addNumberBtn-pushable:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
+
+.addNumberBtn-pushable:hover .addNumberBtn-front {
+  transform: translateY(-6px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.addNumberBtn-pushable:active .addNumberBtn-front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.addNumberBtn-pushable:hover .addNumberBtn-shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.addNumberBtn-pushable:active .addNumberBtn-shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.addNumberBtn-pushable:focus:not(:focus-visible) {
+  outline: none;
+}
 
   .grid {
     display: flex;
@@ -151,6 +305,35 @@ body {
     font-size: 0.9em;
     text-align: center;
   }
+
+  .numberKeyboard {
+    width: 60%;
+  }
+
+  label input:checked + .mark-2 {
+    background: transparent;
+    /* color: #4636fb; */
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+
+  label .mark-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: 5.34rem; */
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: #2a2724;
+    color: white;
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  #digit-random{
+    border: 2px red;
+  }
+
   small {
     display: block;
     padding: 1em;
@@ -160,4 +343,15 @@ body {
   
 .selectChess{
   margin: 10px 5px;
+}
+
+
+/* Css for content inside sweet alert (announcement alert) */
+.numberPicked{
+  border-radius: 50%;
+  background-color: red;
+}
+
+.hidden{
+  visibility: hidden;
 }
