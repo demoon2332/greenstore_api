@@ -101,12 +101,9 @@
     }
   }
 
-  function announce(){
-    let audio = new Audio('sound/tick.mp3');
-    audio.play()
-  }
 
   function addEventToNumber(ticket_id){
+    let audio = new Audio('sound/tick.mp4');
     let boxes = document.getElementById(ticket_id).querySelectorAll('.grid input')
     boxes.forEach((box)=>{box.addEventListener("change",function(e){
       let parentLine = box.parentNode.parentNode
@@ -122,8 +119,8 @@
       //if reach count = 5 then announce
       if(parentLine.getAttribute('tag') == "5")
         {
+          audio.play()
           parentLine.classList.add('line-bingo')
-          announce()
         }
     })
     });
@@ -255,20 +252,21 @@
     // numberClone.innerHTML = parseInt(chosenDigits)
     // numbersManagementHTML.appendChild(numberClone)
 
-
-
     // add to numbers management table
     let a = parseInt(chosenDigits)
     console.log("before function",a)
     addNumberToTable(parseInt(chosenDigits))
 
     findAndMark()
-
   }
+
+
+
 
   function addNumberToTable(number){
     console.log("In function: ",number)
     let clone = document.querySelector('.numberPicked').cloneNode(true)
+    clone.classList.remove('hidden')
     clone.innerHTML = number
     let table = document.querySelector('#numbersManagement')
     table.appendChild(clone)
@@ -294,8 +292,20 @@
     findAndUnmarked(e.innerHTML)
   }
 
-  function confirmAnnounce(element){
-
+  async function confirmAnnounce(e){
+    const { value: accept } = await Swal.fire({
+      title: 'Delete Confirm',
+      text: 'Do you want to delete number '+e.innerHTML,
+      icon: 'question',
+      showDenyButton: true,
+      confirmButtonText: 
+        'Delete <i class="fa fa-arrow-right"></i>',
+      confirmButtonColor: '#d33',
+    })
+    
+    if (accept) {
+      removeNumber(e)
+    }
   }
 
   

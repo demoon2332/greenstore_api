@@ -1,6 +1,6 @@
 body {
     width: 100%;
-    padding: 0;
+    padding: 6px 0px;
     box-sizing: border-box;
     background: #2a2724;
     color: #cf6a32;
@@ -322,7 +322,7 @@ body {
     flex-direction: column;
     justify-content: center;
     /* height: 5.34rem; */
-    padding: 0.8rem 1rem;
+    padding: 1rem 1.2rem;
     border-radius: 12px;
     background: #2a2724;
     color: white;
@@ -343,13 +343,30 @@ body {
   
 .selectChess{
   margin: 10px 5px;
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
 }
 
 
 /* Css for content inside sweet alert (announcement alert) */
 .numberPicked{
   border-radius: 50%;
-  background-color: red;
+  background-color: #cf6a32;
+  color: white;
+  font-size: bold;
+  padding: 5px 10px;
+  margin-left: 3px;
+  border: 1px solid #4a3220;
+  box-shadow: rgba(57, 116, 167, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .hidden{
