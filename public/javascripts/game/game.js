@@ -81,7 +81,7 @@ function switchButton() {
 // move random button position
 function moveButton() {
   var audio = new Audio("sound/Swish1.mp3");
-  audio.volume = 0.5;
+  audio.volume = 0.4;
   audio.play();
   if (screen.width <= 600) {
     var x = Math.random() * 300;

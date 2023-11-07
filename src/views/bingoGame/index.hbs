@@ -15,11 +15,17 @@
 
 </head>
 
-<div id="numbersManagement">
+<body>
+      <div class="back_btn_wrapper">
+        <a href="../">
+            <button class="back_btn">Home</button>
+        </a>
+    </div>
+  <div id="numbersManagement">
   <button class="numberPicked hidden" onclick="confirmAnnounce(this)">0</button>
 </div>
 
-<div id="container" style="display: flex;flex-direction: column;gap: 20px">
+<div id="container" style="display: flex;flex-direction: column;gap: 20px;margin-top: 48px">
   <div>
     <div class="control-area">
       <div class="control-area-l1">
@@ -333,6 +339,7 @@
   </main>
 
 </div>
+</body>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="./javascripts/bingoGame/main.js"></script>

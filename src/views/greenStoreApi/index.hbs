@@ -1,263 +1,294 @@
 <head>
-  <link href="https://cdn-icons-png.flaticon.com/512/272/272525.png" rel="icon">
+  <link
+    href="https://cdn-icons-png.flaticon.com/512/272/272525.png"
+    rel="icon"
+  />
 
-    <link rel="stylesheet" href="./stylesheets/greenStore/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+  <link rel="stylesheet" href="./stylesheets/greenStore/main.css" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+  ></script>
+
 </head>
 <body>
-    <header>
-        <h3>-- GreenStore API --</h3>
-    </header>
-    <div class="container py-3">
+  <div class="back_btn_wrapper">
+    <a href="../">
+      <button class="back_btn">Home</button>
+    </a>
+  </div>
+  <header>
+    <h3>-- GreenStore API --</h3>
+  </header>
+  <div class="container py-3">
     <ul class="nav nav-tabs" id="myTab">
-        <li class="nav-item">
-            <a href="#english" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-earth-asia"></i> English</a>
-        </li>
-        <li class="nav-item">
-            <a href="#vietnamese" class="nav-link" data-bs-toggle="tab"><img src="/storage/images/icon/vietnam.png" width="16px" height="16px"> Vietnamese</a>
-        </li>
+      <li class="nav-item">
+        <a href="#english" class="nav-link active" data-bs-toggle="tab"><i
+            class="fa-solid fa-earth-asia"
+          ></i>
+          English</a>
+      </li>
+      <li class="nav-item">
+        <a href="#vietnamese" class="nav-link" data-bs-toggle="tab"><img
+            src="/storage/images/icon/vietnam.png"
+            width="16px"
+            height="16px"
+          />
+          Vietnamese</a>
+      </li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane fade show active" id="english">
-               <h2 class="mt-3">Reference table for existing API Routes</h2>
-    <table class="table table-bordered mt-3">
-        <thead>
+      <div class="tab-pane fade show active" id="english">
+        <h2 class="mt-3">Reference table for existing API Routes</h2>
+        <table class="table table-bordered mt-3">
+          <thead>
             <tr>
-                <th>URL</th>
-                <th>Method</th>
-                <th>Description</th>
-                <th>Status</th>
+              <th>URL</th>
+              <th>Method</th>
+              <th>Description</th>
+              <th>Status</th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <tr>
-                <td class="text-danger">/products</td>
-                <td class="fw-bold">GET</td>
-                <td>Get all products</td>
-                <td class="text-success">Done</td>
-            </tr>
-            <tr>
-                <td class="text-danger">/products/search/:query</td>
-                <td class="fw-bold">GET</td>
-                <td>Search item by keyword (title)</td>
-                <td class="text-primary">Updating</td>
+              <td class="text-danger">/products</td>
+              <td class="fw-bold">GET</td>
+              <td>Get all products</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/products/:id</td>
-                <td class="fw-bold">GET</td>
-                <td>Get product with id</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/products/search/:query</td>
+              <td class="fw-bold">GET</td>
+              <td>Search item by keyword (title)</td>
+              <td class="text-primary">Updating</td>
             </tr>
             <tr>
-                <td class="text-danger">/rating/:id</td>
-                <td class="fw-bold">GET</td>
-                <td>Get all rating by product ID</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/products/:id</td>
+              <td class="fw-bold">GET</td>
+              <td>Get product with id</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid</td>
-                <td class="fw-bold">GET</td>
-                <td>Get all item from user's cart</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/rating/:id</td>
+              <td class="fw-bold">GET</td>
+              <td>Get all rating by product ID</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid/:pid</td>
-                <td class="fw-bold">POST</td>
-                <td>Add item (+1 item) from user's cart</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/cart/:userid</td>
+              <td class="fw-bold">GET</td>
+              <td>Get all item from user's cart</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid/:pid</td>
-                <td class="fw-bold">PUT</td>
-                <td>Modify item (-1 item) from user's cart</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/cart/:userid/:pid</td>
+              <td class="fw-bold">POST</td>
+              <td>Add item (+1 item) from user's cart</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid/:pid</td>
-                <td class="fw-bold">DELETE</td>
-                <td>Delete item from user's cart</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/cart/:userid/:pid</td>
+              <td class="fw-bold">PUT</td>
+              <td>Modify item (-1 item) from user's cart</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/category</td>
-                <td class="fw-bold">GET</td>
-                <td>get all types in category</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/cart/:userid/:pid</td>
+              <td class="fw-bold">DELETE</td>
+              <td>Delete item from user's cart</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/category/:sn</td>
-                <td class="fw-bold">GET</td>
-                <td>Take all item from cart</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/category</td>
+              <td class="fw-bold">GET</td>
+              <td>get all types in category</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/carousel</td>
-                <td class="fw-bold">GET</td>
-                <td>Get all sale from Carousel</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/category/:sn</td>
+              <td class="fw-bold">GET</td>
+              <td>Take all item from cart</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/order/:uid</td>
-                <td class="fw-bold">GET</td>
-                <td>Get all from order</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/carousel</td>
+              <td class="fw-bold">GET</td>
+              <td>Get all sale from Carousel</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/order/:uid</td>
-                <td class="fw-bold">POST</td>
-                <td>Modify from draft (card) to order (Tiến hành đặt hàng)</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/order/:uid</td>
+              <td class="fw-bold">GET</td>
+              <td>Get all from order</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/order/:uid/:oid</td>
-                <td class="fw-bold">GET</td>
-                <td>Get order's detail</td>
-                <td class="text-success">Done</td>
+              <td class="text-danger">/order/:uid</td>
+              <td class="fw-bold">POST</td>
+              <td>Modify from draft (card) to order (Tiến hành đặt hàng)</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/user/:uid/</td>
-                <td class="fw-bold">GET</td>
-                <td>Get user's detail</td>
-                <td class="text-primary">Updating</td>
-            </tr>
-                        <tr>
-                <td class="text-danger">/user/signup</td>
-                <td class="fw-bold">POST</td>
-                <td>Register new user</td>
-                <td class="text-primary">Updating</td>
-            </tr>
-                        <tr>
-                <td class="text-danger">/user/update</td>
-                <td class="fw-bold">POST</td>
-                <td>Update user's information</td>
-                <td class="text-primary">Updating</td>
-            </tr>
-        </tbody>
-    </table>
-        </div>
-        <div class="tab-pane fade " id="vietnamese">
-               <h2 class="mt-3">Bảng tham khảo lấy các Route API hiện có</h2>
-    <table class="table table-bordered mt-3">
-        <thead>
-            <tr>
-                <th>URL</th>
-                <th>Phương thức</th>
-                <th>Mô tả</th>
-                <th>Trạng thái </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="text-danger">/products</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy tất cả dữ liệu sản phẩm</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/order/:uid/:oid</td>
+              <td class="fw-bold">GET</td>
+              <td>Get order's detail</td>
+              <td class="text-success">Done</td>
             </tr>
             <tr>
-                <td class="text-danger">/products/search/:query</td>
-                <td class="fw-bold">GET</td>
-                <td>Tìm kiếm sản phẩm dựa trên title</td>
-                <td class="text-primary">Đang cập nhật bổ sung</td>
+              <td class="text-danger">/user/:uid/</td>
+              <td class="fw-bold">GET</td>
+              <td>Get user's detail</td>
+              <td class="text-primary">Updating</td>
             </tr>
             <tr>
-                <td class="text-danger">/products/:id</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy sản phẩm với id cụ thể</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/user/signup</td>
+              <td class="fw-bold">POST</td>
+              <td>Register new user</td>
+              <td class="text-primary">Updating</td>
             </tr>
             <tr>
-                <td class="text-danger">/rating/:id</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy tất cả các đánh giá từ product ID</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/user/update</td>
+              <td class="fw-bold">POST</td>
+              <td>Update user's information</td>
+              <td class="text-primary">Updating</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="vietnamese">
+        <h2 class="mt-3">Bảng tham khảo lấy các Route API hiện có</h2>
+        <table class="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th>URL</th>
+              <th>Phương thức</th>
+              <th>Mô tả</th>
+              <th>Trạng thái </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-danger">/products</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy tất cả dữ liệu sản phẩm</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy tất cả các item từ cart của User đó</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/products/search/:query</td>
+              <td class="fw-bold">GET</td>
+              <td>Tìm kiếm sản phẩm dựa trên title</td>
+              <td class="text-primary">Đang cập nhật bổ sung</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid/:pid</td>
-                <td class="fw-bold">POST</td>
-                <td>Thêm item (+1 item) từ cart của User đó</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/products/:id</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy sản phẩm với id cụ thể</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid/:pid</td>
-                <td class="fw-bold">PUT</td>
-                <td>Chỉnh sửa item (-1 item) từ cart của User đó</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/rating/:id</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy tất cả các đánh giá từ product ID</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/cart/:userid/:pid</td>
-                <td class="fw-bold">DELETE</td>
-                <td>Xóa item từ cart của User đó</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/cart/:userid</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy tất cả các item từ cart của User đó</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/category</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy toàn bộ category</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/cart/:userid/:pid</td>
+              <td class="fw-bold">POST</td>
+              <td>Thêm item (+1 item) từ cart của User đó</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/category/:sn</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy toàn bộ item của category đó</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/cart/:userid/:pid</td>
+              <td class="fw-bold">PUT</td>
+              <td>Chỉnh sửa item (-1 item) từ cart của User đó</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/carousel</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy toàn bộ khuyến mại Carousel</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/cart/:userid/:pid</td>
+              <td class="fw-bold">DELETE</td>
+              <td>Xóa item từ cart của User đó</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/order/:uid</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy toàn bộ order</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/category</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy toàn bộ category</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/order/:uid</td>
-                <td class="fw-bold">POST</td>
-                <td>Chuyển từ card sang Order (Tiến hành đặt hàng)</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/category/:sn</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy toàn bộ item của category đó</td>
+              <td class="text-success">Xong</td>
             </tr>
             <tr>
-                <td class="text-danger">/order/:uid/:oid</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy chi tiết 1 order</td>
-                <td class="text-success">Xong</td>
+              <td class="text-danger">/carousel</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy toàn bộ khuyến mại Carousel</td>
+              <td class="text-success">Xong</td>
             </tr>
-                        <tr>
-                <td class="text-danger">/user/:uid/</td>
-                <td class="fw-bold">GET</td>
-                <td>Lấy thông tin của người dùng</td>
-                <td class="text-primary">Đang cập nhật bổ sung</td>
+            <tr>
+              <td class="text-danger">/order/:uid</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy toàn bộ order</td>
+              <td class="text-success">Xong</td>
             </tr>
-                        <tr>
-                <td class="text-danger">/user/signup</td>
-                <td class="fw-bold">POST</td>
-                <td>Đăng kí người dùng mới</td>
-                <td class="text-primary">Đang cập nhật bổ sung</td>
+            <tr>
+              <td class="text-danger">/order/:uid</td>
+              <td class="fw-bold">POST</td>
+              <td>Chuyển từ card sang Order (Tiến hành đặt hàng)</td>
+              <td class="text-success">Xong</td>
             </tr>
-                        <tr>
-                <td class="text-danger">/user/update</td>
-                <td class="fw-bold">POST</td>
-                <td>Cập nhật thông tin người dùng </td>
-                <td class="text-primary">Đang cập nhật bổ sung</td>
+            <tr>
+              <td class="text-danger">/order/:uid/:oid</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy chi tiết 1 order</td>
+              <td class="text-success">Xong</td>
             </tr>
-        </tbody>
-    </table>
-        </div>
+            <tr>
+              <td class="text-danger">/user/:uid/</td>
+              <td class="fw-bold">GET</td>
+              <td>Lấy thông tin của người dùng</td>
+              <td class="text-primary">Đang cập nhật bổ sung</td>
+            </tr>
+            <tr>
+              <td class="text-danger">/user/signup</td>
+              <td class="fw-bold">POST</td>
+              <td>Đăng kí người dùng mới</td>
+              <td class="text-primary">Đang cập nhật bổ sung</td>
+            </tr>
+            <tr>
+              <td class="text-danger">/user/update</td>
+              <td class="fw-bold">POST</td>
+              <td>Cập nhật thông tin người dùng </td>
+              <td class="text-primary">Đang cập nhật bổ sung</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-</div>
+  </div>
 </body>
