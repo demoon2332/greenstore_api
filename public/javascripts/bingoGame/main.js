@@ -103,7 +103,7 @@
 
 
   function addEventToNumber(ticket_id){
-    let audio = new Audio('sound/tick.mp4');
+    let audio = new Audio('sound/tick.mp3');
     let boxes = document.getElementById(ticket_id).querySelectorAll('.grid input')
     boxes.forEach((box)=>{box.addEventListener("change",function(e){
       let parentLine = box.parentNode.parentNode

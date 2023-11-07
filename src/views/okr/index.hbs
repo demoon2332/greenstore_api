@@ -1,1 +1,212 @@
-okr page
+<head>
+  <link href="https://cdn-icons-png.flaticon.com/512/272/272525.png" rel="icon">
+
+    <link rel="stylesheet" href="./stylesheets/okr/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+</head>
+
+<body>
+    <header>
+        <h3>-- OKR API --</h3>
+    </header>
+    <div class="container py-3">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item">
+            <a href="#english" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-earth-asia"></i> English</a>
+        </li>
+        <li class="nav-item">
+            <a href="#vietnamese" class="nav-link" data-bs-toggle="tab"><img src="/storage/images/icon/vietnam.png" width="16px" height="16px"> Vietnamese</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="english">
+               <h2 class="mt-3">Reference table for existing API Routes (KeyResults and Objectives)</h2>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Method</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-danger">/objective/init</td>
+                <td class="fw-bold">GET</td>
+                <td>Init samples data</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/all</td>
+                <td class="fw-bold">GET</td>
+                <td>Get all objectives</td>
+                <td class="text-primary">Updating</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/:uuid</td>
+                <td class="fw-bold">GET</td>
+                <td>Get product with its uuid</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/add</td>
+                <td class="fw-bold">POST</td>
+                <td>Add a new Objective</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/update</td>
+                <td class="fw-bold">POST</td>
+                <td>Update an Objective</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/delete</td>
+                <td class="fw-bold">POST</td>
+                <td>Delete/Remove an Objective</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+
+                {{!-- Key Result --}}
+            <tr>
+                <td class="text-danger">/keyresult/init</td>
+                <td class="fw-bold">GET</td>
+                <td>Init samples data</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/all</td>
+                <td class="fw-bold">GET</td>
+                <td>Get all key results</td>
+                <td class="text-primary">Updating/In process</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/:uuid</td>
+                <td class="fw-bold">GET</td>
+                <td>Get key result with its uuid</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/add</td>
+                <td class="fw-bold">POST</td>
+                <td>Add a new Key Result/td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/update</td>
+                <td class="fw-bold">POST</td>
+                <td>Update a Key Result</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/delete</td>
+                <td class="fw-bold">POST</td>
+                <td>Delete/Remove a Key Result</td>
+                <td class="text-success">Done</td>
+            </tr>
+            <tr>
+        </tbody>
+    </table>
+        </div>
+        <div class="tab-pane fade " id="vietnamese">
+               <h2 class="mt-3">Bảng tham khảo lấy các Route API hiện có (gồm 2 nhánh chính: KeyResults và Objectives)</h2>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Phương thức</th>
+                <th>Mô tả</th>
+                <th>Trạng thái </th>
+            </tr>
+        </thead>
+                <tbody>
+            <tr>
+                <td class="text-danger">/objective/init</td>
+                <td class="fw-bold">GET</td>
+                <td>Khởi tạo dữ liệu mẫu (sample)</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/all</td>
+                <td class="fw-bold">GET</td>
+                <td>Lấy tất cả Objectives</td>
+                <td class="text-primary">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/:uuid</td>
+                <td class="fw-bold">GET</td>
+                <td>Lấy Objective tới uuid của nó</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/add</td>
+                <td class="fw-bold">POST</td>
+                <td>Thêm mới 1 Objective</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/update</td>
+                <td class="fw-bold">POST</td>
+                <td>Cập nhật dữ liệu cho 1 Objective</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/objective/delete</td>
+                <td class="fw-bold">POST</td>
+                <td>Xóa bỏ 1 Objective</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+
+                {{!-- Key Result --}}
+            <tr>
+                <td class="text-danger">/keyresult/init</td>
+                <td class="fw-bold">GET</td>
+                <td>Khởi tạo dữ liệu mẫu (sample)</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/all</td>
+                <td class="fw-bold">GET</td>
+                <td>Lấy tất cả key result (từ 1 Objective)</td>
+                <td class="text-primary">Đang trong quá trình</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/:uuid</td>
+                <td class="fw-bold">GET</td>
+                <td>Lấy key result từ uuid của nó</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/add</td>
+                <td class="fw-bold">POST</td>
+                <td>Thêm mới 1 Key Result/td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/update</td>
+                <td class="fw-bold">POST</td>
+                <td>Cập nhật 1 Key Result</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+                <td class="text-danger">/keyresult/delete</td>
+                <td class="fw-bold">POST</td>
+                <td>Xóa bỏ 1 Key Result</td>
+                <td class="text-success">Xong</td>
+            </tr>
+            <tr>
+        </tbody>
+    </table>
+        </div>
+    </div>
+
+</div>
+</body>

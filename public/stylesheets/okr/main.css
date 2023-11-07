@@ -1,0 +1,11 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+}
+
+header h3{
+    font-weight: bolder;
+}

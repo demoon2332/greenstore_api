@@ -42,7 +42,7 @@ router.get('/all',(req,res)=>{
 router.post('/add',(req,res)=>{
   console.log("POST add objective")
   console.log(req.body)
-  return res.json({code: 100,message: "Something went wrong, we can't add user."})
+  return res.json({code: 100,message: "Something went wrong, we can't add objective."})
   
 })
 
