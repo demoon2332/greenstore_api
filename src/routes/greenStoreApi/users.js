@@ -33,6 +33,8 @@ console.log(year + "-" + month + "-" + day + " " + hour + ":" + minute );
   .catch(err=>{
     return res.json({code: 100,message: "Something went wrong, we can't add user."})
   })
+
+  return res.json({code: 101, message:"Go to here",data: req.body});
 })
 
 router.post('/update',(req,res)=>{

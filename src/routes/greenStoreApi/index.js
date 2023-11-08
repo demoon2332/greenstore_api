@@ -24,12 +24,13 @@ router.get('/', function (req, res, next) {
   res.render('greenStoreApi/index')
 });
 
-router.get('/products',productRouter);
-router.get('/rating', ratingRouter);
-router.get('/category', categoryRouter);
-router.get('/carousel',carouselRouter)
-router.get('/cart',cartRouter)
-router.get('/order', orderRouter)
-router.get('/user', usersRouter);
+router.use('/products',productRouter);
+router.use('/rating', ratingRouter);
+router.use('/category', categoryRouter);
+router.use('/carousel',carouselRouter)
+router.use('/cart',cartRouter)
+router.use('/order', orderRouter)
+router.use('/user', usersRouter);
+
 
 module.exports = router;
