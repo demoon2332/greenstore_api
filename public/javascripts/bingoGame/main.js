@@ -7,7 +7,6 @@
   //elements
   let grid = document.getElementsByClassName('grid')[0];
   const clone = document.getElementById('ticket1').cloneNode(true)
-  let numbersManagementHTML = document.querySelector('#numbersManagement')
   
 
   // use for auto finding number to mark it
@@ -169,6 +168,7 @@
   // these functions below used for automatically finding and marking number for many tickets 
 
   function openNumbersTable(){
+    let numbersManagementHTML = document.querySelector('#numbersManagement').cloneNode(true);
     Swal.fire({
       title: 'Picked numbers',
       text: 'These are numbers has been rolled out.',
@@ -266,11 +266,11 @@
   function addNumberToTable(number){
     console.log("In function: ",number)
     let clone = document.querySelector('.numberPicked').cloneNode(true)
-    clone.classList.remove('hidden')
     clone.innerHTML = number
+    clone.classList.remove('hidden')
     let table = document.querySelector('#numbersManagement')
     table.appendChild(clone)
-   
+
   }
 
   function findAndUnmarked(number){
@@ -289,6 +289,7 @@
   function removeNumber(e){
     // delete this number block
     e.remove()
+    console.log("Remove  number: ",e.innerHTML)
     findAndUnmarked(e.innerHTML)
   }
 

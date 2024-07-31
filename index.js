@@ -1,37 +1,40 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-const cors = require('cors');
-const rateLimit = require('express-rate-limit')
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import session from 'express-session';
+import cors from 'cors';
+import rateLimit from 'express-rate-limit';
+import './src/dbconnect.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // *** Main Page***
-var indexRouter = require('./src/routes/index')
+import indexRouter from './src/routes/index.js';
 
 //**GreenStoreApi
-var indexGreenStoreRouter = require('./src/routes/greenStoreApi/index');
+import indexGreenStoreRouter from './src/routes/greenStoreApi/index.js';
 
 //**OKR Api
-var okrIndexRouter = require('./src/routes/okr/index');
+import okrIndexRouter from './src/routes/okr/index.js';
 
 //**Game 
-var GameRouter = require('./src/routes/game/games')
+import GameRouter from './src/routes/game/games.js';
 
 //Tarot Api
-var tarotRouter = require('./src/routes/tarot')
+import tarotRouter from './src/routes/tarot/index.js';
 
 // Schedule 
-var scheduleRouter = require('./src/routes/schedule')
+import scheduleRouter from './src/routes/schedule/index.js';
 
 // BingoGame
-var bingoGameRouter = require('./src/routes/bingoGame')
+import bingoGameRouter from './src/routes/bingoGame/index.js';
 
-var app = express();
+// LunaFolio
+import lunafolioRouter from './src/routes/lunarfolio/index.js';
 
-require('dotenv').config()
-require('./src/dbconnect')
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, './src/views'));
@@ -85,6 +88,9 @@ app.use('/schedule',scheduleRouter)
 
 // schedule routes
 app.use('/bingoGame',bingoGameRouter)
+
+// lunafolio
+app.use('/lunafolio',lunafolioRouter)
 
 
 // catch 404 and forward to error handler

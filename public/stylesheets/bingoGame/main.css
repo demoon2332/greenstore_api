@@ -372,3 +372,7 @@ body {
 .hidden{
   visibility: hidden;
 }
+
+#numbersManagement{
+  margin-top: 80px;
+}

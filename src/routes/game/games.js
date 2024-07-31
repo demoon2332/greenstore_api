@@ -1,19 +1,13 @@
-var express = require('express');
-var router = express.Router();
+import express from "express";
+const GameRouter = express.Router();
 
-
-
-//model
-
+// model
 
 // another
 
-
-
 // routes
-router.get('/',(req,res)=>{
-    res.render('game/game');
-})
+GameRouter.get("/", (req, res) => {
+  res.render("game/game");
+});
 
-
-module.exports = router;
+export default GameRouter;

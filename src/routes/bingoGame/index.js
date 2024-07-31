@@ -1,24 +1,20 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import data_sample from '../../samples/bingoGame/chesses';
 
+const bingoRouter = express.Router();
 
-
-//model
-const data_sample = require('../../samples/bingoGame/chesses')
-
-
-var chesses = data_sample.getSampleData;
+// model
+const chesses = data_sample.getSampleData;
 
 // another
 
 // routes
-router.get('/',(req,res)=>{
+bingoRouter.get('/', (req, res) => {
     res.render('bingoGame/index');
-})
+});
 
-router.post('/',(req,res)=>{
-    res.json(chesses)
-})
+bingoRouter.post('/', (req, res) => {
+    res.json(chesses);
+});
 
-
-module.exports = router;
+export default BingoRouter;

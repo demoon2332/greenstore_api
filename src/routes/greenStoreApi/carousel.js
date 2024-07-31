@@ -1,41 +1,37 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import Carousel from '../../models/greenStoreApi/carousel.js';
+import carousel_data_sample from '../../samples/greenStoreApi/carousel.js';
 
-// MODELS
-const Carousel = require('../../models/greenStoreApi/carousel')
+const router = express.Router();
 
-//SAMPLE DATA
-const carousel_data_sample = require('../../samples/greenStoreApi/carousel')
+router.get('/init', async (req, res, next) => {
+  try {
+    const result = await Carousel.find({});
+    if (!result || result.length === 0) {
+      try {
+        await Carousel.insertMany(carousel_data_sample.getSampleData);
+      } catch (err) {
+        console.log(err);
+        return res.json({ code: 100, message: err.message });
+      }
+      return res.json({ code: 0, message: 'Initialize data successfully.' });
+    }
+    return res.json({ code: 1, message: 'Carousel list is not empty' });
+  } catch (err) {
+    return res.json({ code: 100, message: err.message });
+  }
+});
 
-router.get('/init', (req, res, next) => {
+router.get('/', async (req, res, next) => {
+  try {
+    const result = await Carousel.find({});
+    if (!result || result.length === 0) {
+      return res.json({ code: 1, message: 'No data' });
+    }
+    return res.json({ code: 0, message: 'Fetch category successfully!', data: result });
+  } catch (err) {
+    return res.json({ code: 100, message: err.message });
+  }
+});
 
-    Carousel.find({})
-    .then((result)=>{
-        if(!result || result.length === 0){
-            try {
-                Carousel.insertMany(carousel_data_sample.getSampleData)
-            }
-            catch (err) {
-                console.log(err)
-                return res.json({ code: 100, message: err.message })
-            }
-            return res.json({ code: 0, message: 'Initialize data successfully.' })
-        }
-        return res.json({ code: 1, message: 'Carousel list is not empty'})
-    })
-})
-
-router.get('/', (req, res, next) => {
-    Carousel.find({})
-    .then(result => {
-        if (!result || result.length === 0) {
-            return res.json({ code: 1, message: 'Không có dữ liệu tồn tại' })
-        }
-        return res.json({ code: 0, message: 'Lấy dữ liệu category thành công', data: result })
-    })
-    .catch(err => {
-        return res.json({ code: 100, message: err })
-    })
-})
-
-module.exports = router;
+export default router;
