@@ -1,55 +1,54 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 // MODELS
-const Category = require('../../models/greenStoreApi/category')
-const Product = require('../../models/greenStoreApi/product')
+import Category from '../../models/greenStoreApi/category.js';
+import Product from '../../models/greenStoreApi/product.js';
 
-//SAMPLE DATA
-const cate_data_sample = require('../../samples/greenStoreApi/category')
+// SAMPLE DATA
+import { getCategorySampleData } from '../../samples/greenStoreApi/category.js';
 
-router.get('/init', (req, res, next) => {
-    Category.find({})
-    .then((result)=>{
-        if(!result || result.length === 0){
-            try {
-                Category.insertMany(cate_data_sample.getSampleData)
-            }
-            catch (err) {
-                console.log(err)
-                return res.json({ code: 100, message: err.message })
-            }
-            return res.json({ code: 0, message: 'Initialize data successfully.' })
-        }
-        return res.json({ code: 1, message: 'Category list is not empty'})
-    })
-})
-
-router.get('/', (req, res, next) => {
-    Category.find({})
-    .then(result => {
+router.get('/init', async (req, res, next) => {
+    try {
+        const result = await Category.find({});
         if (!result || result.length === 0) {
-            return res.json({ code: 1, message: 'No data' })
-        }
-        return res.json({ code: 0, message: "Fetch data from category successfully.", data: result })
-    })
-    .catch(err => {
-        return res.json({ code: 100, message: err })
-    })
-})
-
-router.get('/:sn', (req, res, next) => {
-    let sn = req.params.sn
-    Product.find({ category_sn: sn })
-        .then(result => {
-            if (!result || result.length === 0) {
-                return res.json({ code: 1, message: 'No data' })
+            try {
+                await Category.insertMany(getCategorySampleData());
+                return res.json({ code: 0, message: 'Initialize data successfully.' });
+            } catch (err) {
+                console.log(err);
+                return res.json({ code: 100, message: err.message });
             }
-            return res.json({ code: 0, message: "Fetch data from category successfully.", data: result })
-        })
-        .catch(err => {
-            return res.json({ code: 100, message: err })
-        })
-})
+        }
+        return res.json({ code: 1, message: 'Category list is not empty' });
+    } catch (err) {
+        return res.json({ code: 100, message: err.message });
+    }
+});
 
-module.exports = router;
+router.get('/', async (req, res, next) => {
+    try {
+        const result = await Category.find({});
+        if (!result || result.length === 0) {
+            return res.json({ code: 1, message: 'No data' });
+        }
+        return res.json({ code: 0, message: "Fetch data from category successfully.", data: result });
+    } catch (err) {
+        return res.json({ code: 100, message: err.message });
+    }
+});
+
+router.get('/:sn', async (req, res, next) => {
+    const sn = req.params.sn;
+    try {
+        const result = await Product.find({ category_sn: sn });
+        if (!result || result.length === 0) {
+            return res.json({ code: 1, message: 'No data' });
+        }
+        return res.json({ code: 0, message: "Fetch data from category successfully.", data: result });
+    } catch (err) {
+        return res.json({ code: 100, message: err.message });
+    }
+});
+
+export default router;

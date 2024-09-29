@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const CarouselSchema = new mongoose.Schema({
     next_url: String,
-    url: String, 
-})
+    url: String,
+});
 
-module.exports = mongoose.model('Carousel',CarouselSchema)
+export default mongoose.model('Carousel', CarouselSchema);

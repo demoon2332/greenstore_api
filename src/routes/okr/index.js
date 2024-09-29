@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var objectiveRouter = require('./objective');
-var KeyResultRouter = require('./key_result')
+import express from 'express';
+import objectiveRouter from './objective.js';
+import keyResultRouter from './key_result.js';
 
 // MODELS
-const Product = require('../../models/greenStoreApi/product')
+import Product from '../../models/greenStoreApi/product.js';
 
 /* RETURN CODE TYPE:
   0 : Success
@@ -13,10 +12,13 @@ const Product = require('../../models/greenStoreApi/product')
 */
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('okr/index')
-});
-router.use('/objective',objectiveRouter)
-router.use('/keyresult',KeyResultRouter)
+const router = express.Router();
 
-module.exports = router;
+router.get('/', (req, res, next) => {
+  res.render('okr/index');
+});
+
+router.use('/objective', objectiveRouter);
+router.use('/keyresult', keyResultRouter);
+
+export default router;

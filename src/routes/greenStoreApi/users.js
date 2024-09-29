@@ -1,84 +1,82 @@
-var express = require('express');
-var router = express.Router();
-const User = require('../../models/greenStoreApi/user')
+import express from 'express';
+import User from '../../models/greenStoreApi/user.js';
+
+const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.send('respond with a resource');
 });
 
-router.post('/signup',(req,res)=>{
-  console.log("POST sign up")
-  console.log(req.body)
-  let {name,uid,email,phone} = req.body
-  console.log("Phone",!phone)
-  if(!name || !uid || (!email && !phone) ){
-    return res.json({code: 1,message: 'Please complete all information.'})
+router.post('/signup', async (req, res) => {
+  console.log("POST sign up");
+  console.log(req.body);
+  
+  const { name, uid, email, phone } = req.body;
+  console.log("Phone", !phone);
+  
+  if (!name || !uid || (!email && !phone)) {
+    return res.json({ code: 1, message: 'Please complete all information.' });
   }
 
-const d_t = new Date(); 
-let year = d_t.getFullYear();
-let month = ("0" + (d_t.getMonth() + 1)).slice(-2);
-let day = ("0" + d_t.getDate()).slice(-2);
-let hour = d_t.getHours();
-let minute = d_t.getMinutes();
+  const d_t = new Date();
+  const createdAt = `${d_t.getDate().toString().padStart(2, '0')}-${(d_t.getMonth() + 1).toString().padStart(2, '0')}-${d_t.getFullYear()} ${d_t.getHours()}:${d_t.getMinutes()}`;
+  console.log(createdAt);
 
-// prints date & time in YYYY-MM-DD HH:MM:SS format
-let createdAt = day+"-"+month+"-"+year+" "+hour + ":" + minute 
-console.log(year + "-" + month + "-" + day + " " + hour + ":" + minute );
-  User({uid: uid,name: name,phone: phone,email: email,createdAt: createdAt}).save()
-  .then(function(){
-    return res.json({code: 0,message: "Add user successfully."})
-  })
-  .catch(err=>{
-    return res.json({code: 100,message: "Something went wrong, we can't add user."})
-  })
-
-  return res.json({code: 101, message:"Go to here",data: req.body});
-})
-
-router.post('/update',(req,res)=>{
-  console.log("POST update")
-  console.log(req.body)
-  let {uid,name,address} = req.body
-  if((!name || name.length < 1) && (!address || address.length < 1)){
-    return res.json({code: 1,message: 'Please complete all information.'})
+  try {
+    await new User({ uid, name, phone, email, createdAt }).save();
+    return res.json({ code: 0, message: "Add user successfully." });
+  } catch (err) {
+    console.error(err);
+    return res.json({ code: 100, message: "Something went wrong, we can't add user." });
   }
-  let filter = {uid: uid}
-  let update = {name: name,address: address}
-  if(!name || name.length < 1 ){
-    update = {address: address}
-  }
-  else if(!address || address.length < 1){
-    update = {name: name }
+});
+
+router.post('/update', async (req, res) => {
+  console.log("POST update");
+  console.log(req.body);
+  
+  const { uid, name, address } = req.body;
+  
+  if ((!name || name.length < 1) && (!address || address.length < 1)) {
+    return res.json({ code: 1, message: 'Please complete all information.' });
   }
 
-  User.findOneAndUpdate(filter,update)
-  .then(result=>{
-    if(!result){
-      return res.json({code: 1,message: "Can't find user."})
+  const filter = { uid };
+  const update = {};
+
+  if (name && name.length > 0) update.name = name;
+  if (address && address.length > 0) update.address = address;
+
+  try {
+    const result = await User.findOneAndUpdate(filter, update, { new: true });
+    
+    if (!result) {
+      return res.json({ code: 1, message: "Can't find user." });
     }
-    return res.json({code: 0,message: "Update user successfully."})
-  })
-  .catch(err=>{
-    console.log(err)
-    return res.json({code: 100,message: "Something went wrong we can't update user."})
-  })
-})
+    
+    return res.json({ code: 0, message: "Update user successfully." });
+  } catch (err) {
+    console.error(err);
+    return res.json({ code: 100, message: "Something went wrong we can't update user." });
+  }
+});
 
-router.get('/:uid',(req,res)=>{
-  let id = req.params.uid
-  User.findOne({ uid: id })
-      .then(result => {
-          if (!result) {
-              return res.json({ code: 1, message: 'No data' })
-          }
-          return res.json({ code: 0, message: 'fetch product successfully', data: result })
-      })
-      .catch(err => {
-          return res.json({ code: 100, message: err })
-      })
-})
+router.get('/:uid', async (req, res) => {
+  const id = req.params.uid;
+  
+  try {
+    const result = await User.findOne({ uid: id });
+    
+    if (!result) {
+      return res.json({ code: 1, message: 'No data' });
+    }
+    
+    return res.json({ code: 0, message: 'Fetch product successfully', data: result });
+  } catch (err) {
+    console.error(err);
+    return res.json({ code: 100, message: err.message });
+  }
+});
 
-
-module.exports = router;
+export default router;

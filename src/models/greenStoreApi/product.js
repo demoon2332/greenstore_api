@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const ProductSchema = new mongoose.Schema({
     pid: {
@@ -13,6 +13,6 @@ const ProductSchema = new mongoose.Schema({
     category_sn: String,
     details: String,
     discount: Number    
-})
+});
 
-module.exports = mongoose.model('Product',ProductSchema)
+export default mongoose.model('Product', ProductSchema);

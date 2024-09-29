@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 // MODELS
-const Product = require('../../models/greenStoreApi/product')
+import Product from '../../models/greenStoreApi/product.js'
 
 //SAMPLE DATA
-const p_data_sample = require('../../samples/greenStoreApi/product')
+import {getProductSampleData} from '../../samples/greenStoreApi/product.js'
 
 /* RETURN CODE TYPE:
   0 : Success
@@ -13,47 +13,47 @@ const p_data_sample = require('../../samples/greenStoreApi/product')
   100 : Other errors
 */
 
-router.get('/init', (req, res, next) => {
+const sendResponse = (res, code, message, data = null) => {
+    return res.json({ code, message, data });
+};
 
-    Product.find({})
-    .then((result)=>{
-        if(!result || result.length === 0){
-            try {
-                Product.insertMany(p_data_sample.getSampleData)
-            }
-            catch (err) {
-                console.log(err)
-                return res.json({ code: 100, message: err.message })
-            }
-            return res.json({ code: 0, message: 'Initialize data successfully.' })
+router.get('/init', async (req, res) => {
+    try {
+        const result = await Product.find({});
+        if (!result || result.length === 0) {
+            await Product.insertMany(getProductSampleData);
+            return sendResponse(res, 0, 'Initialize data successfully.');
         }
-        return res.json({ code: 1, message: 'List is not empty'})
-    })
-})
+        return sendResponse(res, 1, 'List is not empty');
+    } catch (err) {
+        console.error(err);
+        return sendResponse(res, 100, err.message);
+    }
+});
 
-router.get('/', (req, res, next) => {
-    Product.find({})
-        .then(result => {
-            return res.json({ code: 0, message: 'fetch products successfully', data: result })
-        })
-        .catch(err => {
-            return res.json({ code: 100, message: err })
-        })
-})
+router.get('/', async (req, res) => {
+    try {
+        const result = await Product.find({});
+        return sendResponse(res, 0, 'Fetch products successfully', result);
+    } catch (err) {
+        console.error(err);
+        return sendResponse(res, 100, err.message);
+    }
+});
 
-router.get('/:id', (req, res, next) => {
-    let id = req.params.id
-    Product.findOne({ pid: id })
-        .then(result => {
-            if (!result) {
-                return res.json({ code: 1, message: 'No data' })
-            }
-            return res.json({ code: 0, message: 'fetch product successfully', data: result })
-        })
-        .catch(err => {
-            return res.json({ code: 100, message: err })
-        })
-})
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await Product.findOne({ pid: id });
+        if (!result) {
+            return sendResponse(res, 1, 'No data');
+        }
+        return sendResponse(res, 0, 'Fetch product successfully', result);
+    } catch (err) {
+        console.error(err);
+        return sendResponse(res, 100, err.message);
+    }
+});
 
 const vnMap = [
     "aáàạãả",
@@ -61,43 +61,42 @@ const vnMap = [
     "oóòỏõọôốồổỗộơớờởỡợ",
     "iíìỉĩị",
     "uúùủũụ"
-]
+];
 
-router.get('/search/:query', (req, res, next) => {
-    let query = req.params.query
-    let key = []
-    let term = []
-    for(var i=0;i<query.length;i++){
-        for(var j=0;j<vnMap.length;j++){
-            if(vnMap[j].includes(query[i])){
-                console.log(vnMap[j])
-                console.log(query[i])  
-                key.push(query[i])
-                term.push(vnMap[j])
+router.get('/search/:query', async (req, res) => {
+    const { query } = req.params;
+    let transformedQuery = query;
+
+    const key = [];
+    const term = [];
+    
+    for (const char of query) {
+        for (const vnSet of vnMap) {
+            if (vnSet.includes(char)) {
+                key.push(char);
+                term.push(vnSet);
                 break;
             }
         }
     }
-    for(var i=0;i<key.length;i++){
-        query = query.replace(key[i],'['+term[i]+']')
-        console.log(key[i])
-        console.log(term[i])
+
+    key.forEach((k, index) => {
+        transformedQuery = transformedQuery.replace(k, `[${term[index]}]`);
+    });
+
+    const regexp = new RegExp(term.join(""));
+
+    try {
+        const result = await Product.find({ title: { $regex: transformedQuery, $options: 'i' } })
+            .collation({ locale: "vi", strength: 1 });
+        if (!result || result.length < 1) {
+            return sendResponse(res, 1, 'No data.');
+        }
+        return sendResponse(res, 0, 'Fetch product successfully.', result);
+    } catch (err) {
+        console.error(err);
+        return sendResponse(res, 100, err.message);
     }
-    console.log("query: "+query)
+});
 
-
-    let regexp = new RegExp(term.join(""))
-
-    Product.find({title: {$regex: query, $options: 'i'}}).collation({locale: "vi", strength: 1})
-        .then(result => {
-            if (!result || result.length<1) {
-                return res.json({ code: 1, message: 'No data.' })
-            }
-            return res.json({ code: 0, message: 'fetch product successfully.', data: result })
-        })
-        .catch(err => {
-            return res.json({ code: 100, message: err })
-        })
-})
-
-module.exports = router;
+export default router;

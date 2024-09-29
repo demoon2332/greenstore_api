@@ -1,5 +1,4 @@
-module.exports = {
-    getSampleData: [
+export const getObjectiveSampleData = [
         {
             id: '1',
             uid: '123',
@@ -74,5 +73,4 @@ module.exports = {
             status: 1,
             createdAt: '28/06/2022'
         },
-    ]
-}
+    ];

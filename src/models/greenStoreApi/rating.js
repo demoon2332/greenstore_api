@@ -1,11 +1,14 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
 
 const RatingSchema = new mongoose.Schema({
-    pid: String,
+    pid: {
+        type: String,
+        unique: true,
+    },
     cus_id: String,
     cus_name: String,
     star: Number,
     comments: String    
-})
+});
 
-module.exports = mongoose.model('Rating',RatingSchema)
+export default mongoose.model('Rating',RatingSchema)

@@ -1,7 +1,5 @@
-var express = require('express');
-var router = express.Router();
-const Card = require('../../models/tarot/card');
-
+import express from 'express';
+const router = express.Router();
 
 //model
 
@@ -33,4 +31,4 @@ router.post('/chosen',(req,res)=>{
 })
 
 
-module.exports = router;
+export default router;

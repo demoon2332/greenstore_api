@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
     uid: {
@@ -13,4 +13,4 @@ const UserSchema = new mongoose.Schema({
     createdAt: String
 })
 
-module.exports = mongoose.model('User', UserSchema)
+export default mongoose.model('User', UserSchema)

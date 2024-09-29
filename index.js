@@ -8,6 +8,8 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import './src/dbconnect.js';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
 dotenv.config();
 
 // *** Main Page***
@@ -33,6 +35,9 @@ import bingoGameRouter from './src/routes/bingoGame/index.js';
 
 // LunaFolio
 import lunafolioRouter from './src/routes/lunarfolio/index.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -121,4 +126,4 @@ app.listen(port, () => {
 });
 // 
 
-module.exports = app;
+export default app;

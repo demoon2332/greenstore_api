@@ -1,10 +1,10 @@
 import express from 'express';
-import data_sample from '../../samples/bingoGame/chesses';
+import {getBingoSampleData} from '../../samples/bingoGame/chesses.js';
 
 const bingoRouter = express.Router();
 
 // model
-const chesses = data_sample.getSampleData;
+const chesses = getBingoSampleData;
 
 // another
 
@@ -17,4 +17,4 @@ bingoRouter.post('/', (req, res) => {
     res.json(chesses);
 });
 
-export default BingoRouter;
+export default bingoRouter;

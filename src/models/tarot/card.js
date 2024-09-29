@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
-//TCard that means Tarot cards
+// TCard that means Tarot cards
 const TCardSchema = new mongoose.Schema({
     name: String,
     suit: String,
@@ -12,6 +12,6 @@ const TCardSchema = new mongoose.Schema({
     description: String,
     reversed: String,
     pulledTime: Number,
-})
+});
 
-module.exports = mongoose.model('TCard', TCardSchema)
+export default mongoose.model('TCard', TCardSchema);

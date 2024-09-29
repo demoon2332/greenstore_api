@@ -2,17 +2,17 @@ import express from "express";
 const GStoreCartRouter = express.Router();
 
 // MODELS
-import Cart from "../../models/greenStoreApi/cart";
-import Product from "../../models/greenStoreApi/product";
+import Cart from "../../models/greenStoreApi/cart.js";
+import Product from "../../models/greenStoreApi/product.js";
 
 //SAMPLE DATA
-import cart_data_sample from "../../samples/greenStoreApi/cart";
+import {getCartSampleData} from "../../samples/greenStoreApi/cart.js";
 
 GStoreCartRouter.get("/init", (req, res, next) => {
   Cart.find({}).then((result) => {
     if (!result || result.length === 0) {
       try {
-        Cart.insertMany(cart_data_sample.getSampleData);
+        Cart.insertMany(getCartSampleData);
       } catch (err) {
         console.log(err);
         return res.json({ code: 100, message: err.message });

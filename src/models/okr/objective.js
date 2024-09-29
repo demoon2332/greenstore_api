@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const ObjectiveSchema = new mongoose.Schema({
     id: String,
@@ -10,5 +10,5 @@ const ObjectiveSchema = new mongoose.Schema({
     createdAt: String
 })
 
-module.exports = mongoose.model('Objective', ObjectiveSchema)
+export default mongoose.model('Objective', ObjectiveSchema)
 

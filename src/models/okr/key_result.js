@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const KeyResultSchema = new mongoose.Schema({
     oid: String,
@@ -15,4 +15,4 @@ const KeyResultSchema = new mongoose.Schema({
     createdAt: String
 })
 
-module.exports = mongoose.model('KeyResult', KeyResultSchema)
+export default mongoose.model('KeyResult', KeyResultSchema)

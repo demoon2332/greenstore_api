@@ -1,6 +1,6 @@
 import express from 'express';
 import Carousel from '../../models/greenStoreApi/carousel.js';
-import carousel_data_sample from '../../samples/greenStoreApi/carousel.js';
+import {getCarouselSampleData} from '../../samples/greenStoreApi/carousel.js';
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.get('/init', async (req, res, next) => {
     const result = await Carousel.find({});
     if (!result || result.length === 0) {
       try {
-        await Carousel.insertMany(carousel_data_sample.getSampleData);
+        await Carousel.insertMany(getCarouselSampleData);
       } catch (err) {
         console.log(err);
         return res.json({ code: 100, message: err.message });

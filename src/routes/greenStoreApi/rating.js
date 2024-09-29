@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 // MODELS
-const Rating = require('../../models/greenStoreApi/rating')
+import Rating from '../../models/greenStoreApi/rating.js';
 
 //SAMPLE DATA
-const rate_data_sample = require('../../samples/greenStoreApi/rating')
+import {getRatingSampleData} from '../../samples/greenStoreApi/rating.js';
 
 router.get('/init',(req, res, next)=>{
 
@@ -13,7 +13,7 @@ router.get('/init',(req, res, next)=>{
     .then((result)=>{
         if(!result || result.length === 0){
             try {
-                Rating.insertMany(rate_data_sample.getRatingData)
+                Rating.insertMany(getRatingSampleData)
             }
             catch (err) {
                 console.log(err)
@@ -39,4 +39,4 @@ router.get('/:id', (req, res, next) => {
         })
 })
 
-module.exports = router;
+export default router;

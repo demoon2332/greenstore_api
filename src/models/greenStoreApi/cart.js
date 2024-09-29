@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const CartSchema = new mongoose.Schema({
     oid: String,
@@ -13,6 +13,6 @@ const CartSchema = new mongoose.Schema({
         }
     ],
     createdAt: String
-})
+});
 
-module.exports = mongoose.model('Cart', CartSchema)
+export default mongoose.model('Cart', CartSchema);
